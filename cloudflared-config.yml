@@ -1,0 +1,23 @@
+# ==============================================================================
+# CONTOH KONFIGURASI CLOUDFLARE TUNNEL (cloudflared)
+# Domain: order.heragandhi.web.id
+# Target: Node Docker di Proxmox VE (Port 8080)
+# ==============================================================================
+
+tunnel: <UUID-TUNNEL-ANDA>
+credentials-file: /root/.cloudflared/<UUID-TUNNEL-ANDA>.json
+
+ingress:
+  # 1. Routing Domain Frontend Ordering System
+  - hostname: order.heragandhi.web.id
+    service: http://localhost:8080
+    originRequest:
+      noTLSVerify: true
+      connectTimeout: 30s
+
+  # 2. Opsional: Routing Supabase Self-Hosted jika di-host di Proxmox yang sama
+  # - hostname: api-order.heragandhi.web.id
+  #   service: http://localhost:8000
+
+  # 3. Default catch-all (Wajib untuk Cloudflare Tunnel)
+  - service: http_status:404

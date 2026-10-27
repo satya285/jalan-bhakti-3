@@ -1,0 +1,28 @@
+services:
+  jalan-bhakti-3-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bhakti3-ordering
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - web-network
+
+  # Opsional: Cloudflare Tunnel daemon jika ingin dijalankan bersamaan dalam satu stack
+  # cloudflared:
+  #   image: cloudflare/cloudflared:latest
+  #   container_name: bhakti3-cloudflared
+  #   restart: unless-stopped
+  #   command: tunnel run
+  #   environment:
+  #     - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+  #   networks:
+  #     - web-network
+
+networks:
+  web-network:
+    driver: bridge

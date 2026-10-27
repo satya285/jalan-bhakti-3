@@ -1,0 +1,30 @@
+{
+  "name": "Jalan Bhakti 3 - Peri-Peri Chicken",
+  "short_name": "Jalan Bhakti 3",
+  "description": "Sistem Pemesanan Pre-Order Ayam Peri-Peri Khas Jalan Bhakti 3, Ciganjur. Pengiriman Selasa s/d Jumat.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0c0a09",
+  "theme_color": "#1c1917",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
